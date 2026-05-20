@@ -1,75 +1,1422 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>miuraapp.com</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--verde:#009C3B;--amarelo:#FFDF00;--azul-escuro:#001A55;--branco:#fff}
-    html,body{height:100%;font-family:'Barlow',sans-serif;background:var(--azul-escuro)}
-    .bg{position:fixed;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,#003a9e55,transparent 70%),radial-gradient(ellipse 60% 40% at 10% 80%,#007A2E44,transparent 60%),var(--azul-escuro)}
-    .estrelas{position:fixed;inset:0;pointer-events:none}
-    .estrela{position:absolute;border-radius:50%;background:var(--amarelo);animation:piscar var(--d,3s) ease-in-out infinite;animation-delay:var(--delay,0s);opacity:0}
-    @keyframes piscar{0%,100%{opacity:0;transform:scale(.5)}50%{opacity:.7;transform:scale(1)}}
-    .page{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1.5rem}
-    .header{text-align:center;margin-bottom:3.5rem}
-    .flag-stripe{display:flex;justify-content:center;gap:6px;margin-bottom:1.4rem}
-    .flag-stripe span{display:block;height:5px;border-radius:3px}
-    .s1{width:40px;background:var(--verde)}.s2{width:80px;background:var(--amarelo)}
-    .site-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,10vw,6rem);letter-spacing:.06em;color:var(--amarelo);text-shadow:0 0 40px #FFDF0066,0 4px 0 #00000088}
-    .site-sub{margin-top:.6rem;font-size:clamp(.85rem,2.5vw,1.05rem);font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--verde)}
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.8rem;width:100%;max-width:780px}
-    .card{position:relative;background:linear-gradient(135deg,#ffffff0d,#ffffff05);border:1px solid #ffffff18;border-radius:20px;padding:2.2rem 2rem 2rem;text-decoration:none;overflow:hidden;transition:transform .3s,box-shadow .3s}
-    .card:hover{transform:translateY(-6px);box-shadow:0 20px 60px #00000055}
-    .card-icon{font-size:2.8rem;margin-bottom:1rem;display:block}
-    .card-tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-bottom:.9rem}
-    .card--album .card-tag{background:var(--amarelo);color:var(--azul-escuro)}
-    .card--radar .card-tag{background:var(--verde);color:var(--branco)}
-    .card-title{font-family:'Bebas Neue',sans-serif;font-size:2rem;line-height:1.1;color:var(--branco);margin-bottom:.7rem}
-    .card-desc{font-size:.95rem;line-height:1.6;color:#ffffffaa;margin-bottom:1.6rem}
-    .card-btn{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
-    .card--album .card-btn{color:var(--amarelo)}.card--radar .card-btn{color:#5ddb8a}
-    .card-accent-bar{position:absolute;top:0;left:0;width:4px;height:100%;border-radius:20px 0 0 20px}
-    .card--album .card-accent-bar{background:linear-gradient(180deg,var(--amarelo),#ffdf0033)}
-    .card--radar .card-accent-bar{background:linear-gradient(180deg,var(--verde),#009c3b33)}
-    .footer{margin-top:3rem;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;color:#ffffff33}
-    @media(max-width:480px){.cards{grid-template-columns:1fr}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a1628">
+<meta name="description" content="MiuraAPP — desenvolvimento de soluções de Inteligência Artificial em Brasília. Agentes autônomos, automações e sistemas de IA que rodam em produção.">
+<title>MiuraAPP — Desenvolvimento de IA em Brasília</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   1. RESET E TOKENS DE DESIGN
+   ========================================================= */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+img,svg,video{display:block;max-width:100%;height:auto}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+
+:root{
+  /* Paleta — azuis profundos */
+  --bg:#0a1628;
+  --bg-elevated:#0f1d33;
+  --bg-card:#142441;
+  /* Primárias */
+  --brand-deep:#1e3a8a;
+  --brand:#2563eb;
+  --holo:#38bdf8;
+  /* Acento âmbar */
+  --amber:#f59e0b;
+  --amber-soft:#fbbf24;
+  /* Neutros */
+  --muted:#94a3b8;
+  --text:#e2e8f0;
+  --title:#f8fafc;
+  /* Bordas */
+  --border:rgba(148,163,184,.14);
+  --border-strong:rgba(148,163,184,.22);
+  /* Sombras */
+  --shadow-card:0 8px 32px rgba(0,0,0,.4);
+  --glow-holo:0 0 0 3px rgba(56,189,248,.15);
+  --glow-amber:0 0 24px rgba(245,158,11,.35);
+
+  /* Espaçamento — grid 8px */
+  --s-1:4px;--s-2:8px;--s-3:16px;--s-4:24px;--s-5:32px;
+  --s-6:48px;--s-7:64px;--s-8:96px;--s-9:128px;
+
+  /* Border radius */
+  --r-1:4px;--r-2:8px;--r-3:16px;--r-pill:999px;
+
+  /* Tipografia */
+  --font-display:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;
+  --font-body:"Inter",ui-sans-serif,system-ui,sans-serif;
+}
+
+/* =========================================================
+   2. BASE
+   ========================================================= */
+body{
+  font-family:var(--font-body);
+  background:var(--bg);
+  color:var(--text);
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+  min-height:100vh;
+}
+::selection{background:var(--brand);color:var(--title)}
+
+h1,h2,h3,h4,h5{font-family:var(--font-display);color:var(--title);line-height:1.05;letter-spacing:-0.02em;font-weight:600}
+h1{font-size:clamp(2.8rem,6.5vw,5.5rem)}
+h2{font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-0.015em}
+h3{font-size:clamp(1.2rem,2vw,1.4rem);letter-spacing:-0.01em}
+p{max-width:62ch}
+
+.container{
+  width:min(100% - 2 * var(--s-4), 1200px);
+  margin-inline:auto;
+}
+
+.eyebrow{
+  font-family:var(--font-display);
+  font-size:.78rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--holo);
+  display:inline-flex;
+  align-items:center;
+  gap:var(--s-2);
+}
+.eyebrow::before{
+  content:"";
+  width:24px;height:1px;background:var(--holo);
+  display:inline-block;
+}
+
+/* Acessibilidade — foco visível */
+:focus-visible{
+  outline:2px solid var(--holo);
+  outline-offset:3px;
+  border-radius:var(--r-1);
+}
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;
+  margin:-1px;overflow:hidden;clip:rect(0,0,0,0);
+  white-space:nowrap;border:0;
+}
+.skip-link{
+  position:absolute;top:-100px;left:var(--s-3);
+  background:var(--brand);color:var(--title);
+  padding:var(--s-2) var(--s-3);border-radius:var(--r-2);
+  font-family:var(--font-display);font-weight:500;z-index:1000;
+  transition:top .2s ease;
+}
+.skip-link:focus{top:var(--s-3)}
+
+/* =========================================================
+   3. BOTÕES
+   ========================================================= */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  gap:var(--s-2);
+  font-family:var(--font-display);font-weight:500;font-size:.95rem;
+  padding:14px 28px;
+  border-radius:var(--r-2);
+  min-height:44px;
+  letter-spacing:-0.005em;
+  transition:transform .25s ease, background .25s ease, box-shadow .25s ease, border-color .25s ease, color .25s ease;
+  cursor:pointer;
+  text-align:center;
+}
+.btn-primary{
+  background:var(--brand);color:var(--title);
+  box-shadow:0 4px 18px rgba(37,99,235,.35);
+}
+.btn-primary:hover,.btn-primary:focus-visible{
+  background:#3b78ff;transform:translateY(-2px);
+  box-shadow:0 8px 28px rgba(37,99,235,.5);
+}
+.btn-secondary{
+  background:transparent;color:var(--title);
+  border:1px solid var(--border-strong);
+}
+.btn-secondary:hover,.btn-secondary:focus-visible{
+  border-color:var(--holo);color:var(--holo);
+  box-shadow:var(--glow-holo);transform:translateY(-2px);
+}
+.btn .arrow{display:inline-block;transition:transform .25s ease}
+.btn:hover .arrow{transform:translateX(4px)}
+
+/* =========================================================
+   4. HEADER
+   ========================================================= */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  padding:var(--s-3) 0;
+  background:rgba(10,22,40,.7);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s ease, background .3s ease;
+}
+.site-header.scrolled{
+  border-bottom-color:var(--border);
+  background:rgba(10,22,40,.88);
+}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:var(--s-4);
+}
+.logo{
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  font-family:var(--font-display);font-weight:600;font-size:1.05rem;
+  color:var(--title);letter-spacing:-0.01em;
+}
+.logo-dot{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--amber);
+  box-shadow:var(--glow-amber);
+  animation:pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1);opacity:1}
+  50%{transform:scale(1.25);opacity:.7}
+}
+.nav-links{
+  display:flex;gap:var(--s-5);align-items:center;
+  font-family:var(--font-display);font-size:.92rem;
+}
+.nav-links a{
+  color:var(--muted);position:relative;
+  padding:var(--s-2) 0;
+  transition:color .25s ease;
+}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--title)}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;
+  width:0;height:1px;background:var(--holo);
+  transition:width .3s ease;
+}
+.nav-links a:hover::after,.nav-links a:focus-visible::after{width:100%}
+.nav-cta{display:none}
+@media (min-width:768px){.nav-cta{display:inline-flex}}
+
+.menu-toggle{
+  display:inline-flex;flex-direction:column;gap:5px;
+  padding:var(--s-2);min-width:44px;min-height:44px;
+  align-items:center;justify-content:center;
+  border-radius:var(--r-2);
+}
+.menu-toggle span{
+  width:22px;height:1.5px;background:var(--title);
+  transition:transform .3s ease, opacity .3s ease;
+}
+.menu-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+@media (min-width:768px){.menu-toggle{display:none}}
+
+@media (max-width:767px){
+  .nav-links{
+    position:fixed;top:64px;left:0;right:0;
+    flex-direction:column;align-items:flex-start;
+    padding:var(--s-5) var(--s-4) var(--s-6);
+    gap:var(--s-4);
+    background:rgba(15,29,51,.98);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--border);
+    transform:translateY(-110%);
+    transition:transform .35s cubic-bezier(.4,0,.2,1);
+    font-size:1.4rem;
+  }
+  .nav-links.open{transform:translateY(0)}
+  .nav-links a{padding:var(--s-3) 0;width:100%;border-bottom:1px solid var(--border)}
+}
+
+/* =========================================================
+   5. HERO
+   ========================================================= */
+.hero{
+  position:relative;
+  min-height:100svh;
+  padding-top:calc(var(--s-9) + var(--s-4));
+  padding-bottom:var(--s-7);
+  display:flex;align-items:center;
+  overflow:hidden;
+  isolation:isolate;
+}
+.hero-grid-bg{
+  position:absolute;inset:0;z-index:-2;
+  background-image:
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size:64px 64px;
+  background-position:center center;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 75%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 75%);
+  opacity:.55;
+}
+.hero-glow{
+  position:absolute;inset:0;z-index:-1;pointer-events:none;
+}
+.hero-glow::before{
+  content:"";position:absolute;
+  top:30%;left:50%;transform:translate(-50%,-50%);
+  width:min(700px,90vw);aspect-ratio:1;
+  background:radial-gradient(circle, rgba(56,189,248,.18) 0%, rgba(37,99,235,.08) 35%, transparent 70%);
+  border-radius:50%;
+  filter:blur(20px);
+}
+.hero-glow::after{
+  content:"";position:absolute;
+  bottom:0;right:-10%;
+  width:min(500px,70vw);aspect-ratio:1;
+  background:radial-gradient(circle, rgba(245,158,11,.12) 0%, transparent 65%);
+  border-radius:50%;
+  filter:blur(40px);
+}
+.hero-content{
+  position:relative;z-index:1;
+  display:grid;gap:var(--s-5);
+  max-width:1100px;
+}
+.hero-eyebrow{margin-bottom:var(--s-1)}
+.hero h1{font-weight:600}
+.hero h1 .accent{
+  color:var(--holo);
+  background:linear-gradient(135deg, var(--holo) 0%, var(--amber-soft) 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  font-style:italic;font-weight:500;
+}
+.hero-sub{
+  color:var(--muted);
+  font-size:clamp(1.05rem,1.6vw,1.25rem);
+  max-width:60ch;
+  line-height:1.6;
+}
+.hero-actions{
+  display:flex;flex-wrap:wrap;gap:var(--s-3);
+  margin-top:var(--s-2);
+}
+.scroll-indicator{
+  position:absolute;left:50%;bottom:var(--s-5);
+  transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:var(--s-2);
+  color:var(--muted);
+  font-family:var(--font-display);font-size:.72rem;
+  letter-spacing:.2em;text-transform:uppercase;
+}
+.scroll-indicator .line{
+  width:1px;height:48px;
+  background:linear-gradient(to bottom, transparent, var(--holo));
+  position:relative;overflow:hidden;
+}
+.scroll-indicator .line::after{
+  content:"";position:absolute;top:-100%;left:0;
+  width:100%;height:50%;
+  background:linear-gradient(to bottom, transparent, var(--title));
+  animation:scrollPulse 2.2s ease-in-out infinite;
+}
+@keyframes scrollPulse{
+  0%{top:-50%}
+  100%{top:110%}
+}
+
+/* =========================================================
+   6. MARQUEE
+   ========================================================= */
+.marquee{
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:var(--s-4) 0;
+  background:var(--bg-elevated);
+  overflow:hidden;
+  position:relative;
+}
+.marquee-track{
+  display:flex;gap:var(--s-6);
+  width:max-content;
+  animation:marquee 38s linear infinite;
+  font-family:var(--font-display);
+  font-size:clamp(1.4rem,2.6vw,2rem);
+  letter-spacing:-0.01em;
+  color:var(--title);
+  white-space:nowrap;
+}
+.marquee-track span{display:inline-flex;align-items:center;gap:var(--s-6)}
+.marquee-track span::after{
+  content:"";display:inline-block;
+  width:8px;height:8px;border-radius:50%;
+  background:var(--amber);
+  flex-shrink:0;
+}
+@keyframes marquee{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+.marquee:hover .marquee-track{animation-play-state:paused}
+
+/* =========================================================
+   7. SEÇÕES GERAIS
+   ========================================================= */
+section[data-section]{
+  padding:var(--s-9) 0;
+  position:relative;
+}
+@media (max-width:767px){
+  section[data-section]{padding:var(--s-8) 0}
+}
+.section-head{
+  display:grid;gap:var(--s-3);
+  margin-bottom:var(--s-7);
+  max-width:780px;
+}
+.section-head p{color:var(--muted);font-size:1.1rem}
+
+/* =========================================================
+   8. ABORDAGEM
+   ========================================================= */
+.abordagem{background:var(--bg-elevated)}
+.abordagem-grid{
+  display:grid;gap:var(--s-6);
+  grid-template-columns:1fr;
+}
+@media (min-width:900px){
+  .abordagem-grid{grid-template-columns:1.3fr 1fr;align-items:end;gap:var(--s-8)}
+}
+.abordagem h2{
+  font-size:clamp(2.4rem,5vw,4rem);
+  font-weight:500;
+  line-height:1.02;
+}
+.abordagem h2 em{
+  font-style:italic;color:var(--holo);font-weight:400;
+}
+.abordagem-text p{
+  color:var(--muted);font-size:1.05rem;margin-bottom:var(--s-3);
+}
+.abordagem-text p:last-child{margin-bottom:0}
+.abordagem-text strong{color:var(--text);font-weight:500}
+
+/* =========================================================
+   9. SERVIÇOS — LISTA EDITORIAL NUMERADA
+   ========================================================= */
+.servicos-list{
+  display:grid;gap:0;
+  border-top:1px solid var(--border);
+}
+.servico{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:var(--s-4);
+  padding:var(--s-5) 0;
+  border-bottom:1px solid var(--border);
+  transition:background .3s ease, padding .3s ease;
+  cursor:default;
+}
+.servico:hover{
+  background:linear-gradient(to right, transparent, rgba(56,189,248,.04), transparent);
+  padding-left:var(--s-3);padding-right:var(--s-3);
+}
+@media (min-width:768px){
+  .servico{grid-template-columns:120px 1fr auto;gap:var(--s-6);align-items:start}
+}
+.servico-num{
+  font-family:var(--font-display);
+  font-size:1.4rem;color:var(--muted);
+  font-weight:400;
+  font-variant-numeric:tabular-nums;
+}
+.servico-body h3{
+  font-size:clamp(1.4rem,2.4vw,2rem);
+  font-weight:500;
+  margin-bottom:var(--s-2);
+  transition:color .3s ease;
+}
+.servico:hover .servico-body h3{color:var(--holo)}
+.servico-body p{color:var(--muted);max-width:55ch}
+.servico-tags{
+  display:flex;flex-wrap:wrap;gap:var(--s-2);
+  margin-top:var(--s-3);
+}
+@media (min-width:768px){
+  .servico-tags{
+    margin-top:0;flex-direction:column;align-items:flex-end;
+    text-align:right;flex-wrap:nowrap;gap:var(--s-1);
+  }
+}
+.tag{
+  display:inline-block;
+  padding:6px 12px;
+  font-family:var(--font-display);font-size:.74rem;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);
+  border:1px solid var(--border);
+  border-radius:var(--r-pill);
+  background:rgba(20,36,65,.4);
+  white-space:nowrap;
+}
+
+/* =========================================================
+   10. PROJETOS — GRID 2×2
+   ========================================================= */
+.projetos-grid{
+  display:grid;gap:var(--s-4);
+  grid-template-columns:1fr;
+}
+@media (min-width:768px){
+  .projetos-grid{grid-template-columns:repeat(2,1fr);gap:var(--s-5)}
+}
+.projeto-card{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--r-3);
+  padding:var(--s-5);
+  display:grid;gap:var(--s-3);
+  transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+  position:relative;
+  overflow:hidden;
+  min-height:280px;
+}
+.projeto-card::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 80% 0%, rgba(56,189,248,.08), transparent 50%);
+  opacity:0;transition:opacity .4s ease;
+  pointer-events:none;
+}
+.projeto-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(56,189,248,.4);
+  box-shadow:var(--shadow-card), 0 0 0 1px rgba(56,189,248,.2);
+}
+.projeto-card:hover::before{opacity:1}
+.projeto-icon{
+  width:44px;height:44px;
+  border-radius:var(--r-2);
+  background:rgba(56,189,248,.1);
+  border:1px solid rgba(56,189,248,.25);
+  display:inline-flex;align-items:center;justify-content:center;
+  color:var(--holo);
+  margin-bottom:var(--s-2);
+}
+.projeto-icon svg{width:22px;height:22px}
+.projeto-card h3{font-size:1.35rem;margin-bottom:var(--s-1)}
+.projeto-card p{color:var(--muted);font-size:.97rem;flex:1}
+.projeto-stack{
+  display:flex;flex-wrap:wrap;gap:var(--s-1);
+  margin-top:auto;padding-top:var(--s-3);
+  border-top:1px solid var(--border);
+}
+.projeto-stack span{
+  font-family:var(--font-display);font-size:.7rem;
+  color:var(--muted);letter-spacing:.04em;
+}
+.projeto-stack span:not(:last-child)::after{
+  content:"·";margin-left:var(--s-1);color:var(--border-strong);
+}
+
+/* =========================================================
+   11. SOBRE — STATS
+   ========================================================= */
+.sobre{background:var(--bg-elevated)}
+.sobre-grid{
+  display:grid;gap:var(--s-7);
+  grid-template-columns:1fr;
+  align-items:center;
+}
+@media (min-width:900px){
+  .sobre-grid{grid-template-columns:1fr 1fr;gap:var(--s-8)}
+}
+
+.sobre-stats{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:var(--s-4);
+  margin-top:var(--s-5);
+  padding-top:var(--s-5);
+  border-top:1px solid var(--border);
+}
+.stat-num{
+  font-family:var(--font-display);
+  font-size:clamp(2rem,4vw,2.6rem);
+  color:var(--holo);font-weight:600;
+  font-variant-numeric:tabular-nums;
+  line-height:1;
+  margin-bottom:var(--s-1);
+}
+.stat-label{
+  font-size:.88rem;color:var(--muted);
+  font-family:var(--font-display);letter-spacing:.04em;
+}
+.sobre-text p{color:var(--muted);margin-bottom:var(--s-3)}
+.sobre-text p:last-of-type{margin-bottom:0}
+.sobre-text strong{color:var(--text);font-weight:500}
+
+@keyframes spin{
+  from{transform:rotate(0)}
+  to{transform:rotate(360deg)}
+}
+
+/* =========================================================
+   12. CTA
+   ========================================================= */
+.cta{
+  text-align:center;
+  position:relative;overflow:hidden;
+  padding:var(--s-9) 0;
+  isolation:isolate;
+}
+.cta::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 50%, rgba(37,99,235,.18) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 50% 100%, rgba(245,158,11,.1) 0%, transparent 70%);
+}
+.cta .container{display:grid;gap:var(--s-4);place-items:center;text-align:center}
+.cta h2{font-size:clamp(2.4rem,6vw,4.4rem);font-weight:500;max-width:14ch}
+.cta h2 em{font-style:italic;color:var(--holo);font-weight:400}
+.cta p{color:var(--muted);font-size:1.1rem;margin-bottom:var(--s-3)}
+.cta-email{
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  font-family:var(--font-display);
+  font-size:clamp(1.3rem,3.2vw,2.1rem);
+  color:var(--title);
+  padding:var(--s-3) var(--s-5);
+  border:1px solid var(--border-strong);
+  border-radius:var(--r-pill);
+  background:var(--bg-card);
+  transition:border-color .3s ease, color .3s ease, box-shadow .3s ease, transform .3s ease;
+  min-height:44px;
+  font-weight:500;
+  letter-spacing:-0.005em;
+  word-break:break-all;
+}
+.cta-email:hover,.cta-email:focus-visible{
+  color:var(--holo);border-color:var(--holo);
+  box-shadow:var(--glow-holo);transform:translateY(-2px);
+}
+.cta-email .dot{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--amber);box-shadow:var(--glow-amber);
+  flex-shrink:0;
+}
+
+/* =========================================================
+   13. FOOTER
+   ========================================================= */
+.site-footer{
+  border-top:1px solid var(--border);
+  padding:var(--s-5) 0;
+  background:var(--bg);
+}
+.footer-grid{
+  display:flex;flex-direction:column;
+  gap:var(--s-3);
+  align-items:center;text-align:center;
+  font-size:.88rem;color:var(--muted);
+}
+@media (min-width:768px){
+  .footer-grid{flex-direction:row;justify-content:space-between;text-align:left}
+}
+.footer-grid a{color:var(--muted);transition:color .25s ease}
+.footer-grid a:hover,.footer-grid a:focus-visible{color:var(--holo)}
+.footer-links{display:flex;gap:var(--s-4);flex-wrap:wrap;justify-content:center}
+
+/* =========================================================
+   13a. VIDEO BANNER (topo da página)
+   ========================================================= */
+.video-banner{
+  position:relative;
+  width:100%;
+  height:56.25vw;            /* fallback de altura — proporção 16:9 do viewport */
+  max-height:80vh;
+  min-height:300px;
+  overflow:hidden;
+  background:var(--bg) center/cover no-repeat;
+  background-image:url("videos/opt/poster.jpg");
+  isolation:isolate;
+  display:block;
+}
+.video-banner-media{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  background:transparent;
+  z-index:0;
+}
+@media (max-width:767px){
+  .video-banner{height:auto;aspect-ratio:4/5;min-height:60vh}
+}
+.video-banner-overlay{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(10,22,40,.35) 0%, transparent 22%, transparent 60%, rgba(10,22,40,.95) 100%),
+    linear-gradient(135deg, rgba(37,99,235,.05) 0%, transparent 40%, rgba(245,158,11,.04) 100%);
+}
+/* Pequeno indicador discreto no banner */
+.video-banner::after{
+  content:"";
+  position:absolute;
+  left:50%;bottom:var(--s-5);
+  transform:translateX(-50%);
+  z-index:2;
+  width:1px;height:var(--s-6);
+  background:linear-gradient(to bottom, transparent, var(--holo));
+  opacity:.7;
+}
+
+/* =========================================================
+   13b. IMAGENS DE SEÇÃO
+   ========================================================= */
+.section-image{
+  position:relative;
+  border-radius:var(--r-3);
+  overflow:hidden;
+  border:1px solid var(--border-strong);
+  box-shadow:var(--shadow-card);
+  isolation:isolate;
+  background:var(--bg-card);
+}
+.section-image img{
+  width:100%;height:auto;display:block;
+  transition:transform .8s cubic-bezier(.2,.6,.2,1);
+}
+.section-image::before{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(10,22,40,0) 60%, rgba(10,22,40,.35) 100%),
+    linear-gradient(135deg, rgba(56,189,248,.08) 0%, transparent 40%, rgba(245,158,11,.06) 100%);
+  mix-blend-mode:screen;
+}
+.section-image::after{
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  border-radius:inherit;
+  box-shadow:inset 0 0 0 1px rgba(56,189,248,.12);
+}
+.section-image:hover img{transform:scale(1.02)}
+
+/* Hero — layout 2 colunas em desktop */
+.hero-layout{
+  display:grid;gap:var(--s-6);
+  grid-template-columns:1fr;
+  align-items:center;
+}
+@media (min-width:1024px){
+  .hero-layout{
+    grid-template-columns:1.15fr 0.85fr;
+    gap:var(--s-7);
+  }
+}
+.hero-visual{
+  position:relative;
+  aspect-ratio:1/1;
+  max-width:560px;
+  width:100%;
+  margin-inline:auto;
+}
+.hero-visual::before{
+  content:"";position:absolute;
+  inset:-12% -12% auto auto;
+  width:140px;aspect-ratio:1;
+  background:radial-gradient(circle, rgba(245,158,11,.5) 0%, transparent 70%);
+  border-radius:50%;
+  filter:blur(20px);
+  pointer-events:none;
+  z-index:0;
+}
+.hero-visual .section-image{position:relative;z-index:1;height:100%}
+.hero-visual .section-image img{height:100%;object-fit:cover}
+
+/* Abordagem — grid com imagem */
+.abordagem-image{
+  margin-top:var(--s-5);
+  aspect-ratio:16/12;
+}
+@media (min-width:900px){
+  .abordagem-grid{
+    grid-template-columns:1fr 1fr;
+    grid-template-areas:
+      "heading image"
+      "text    image";
+    align-items:start;gap:var(--s-7);
+  }
+  .abordagem-heading{grid-area:heading}
+  .abordagem-text{grid-area:text}
+  .abordagem-image{grid-area:image;margin-top:0;aspect-ratio:4/5;align-self:stretch;height:100%}
+}
+.abordagem-image img{height:100%;object-fit:cover}
+
+/* Serviços — banner landscape */
+.servicos-banner{
+  margin:0 auto var(--s-7);
+  max-width:1100px;
+  aspect-ratio:16/9;
+  position:relative;
+}
+.servicos-banner img{height:100%;object-fit:cover}
+.servicos-banner::after{
+  content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
+  background:linear-gradient(180deg, transparent 40%, rgba(15,29,51,.85) 100%);
+  border-radius:var(--r-3);
+}
+.servicos-banner .caption{
+  position:absolute;left:var(--s-4);bottom:var(--s-4);
+  z-index:4;
+  font-family:var(--font-display);
+  font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--holo);
+  display:inline-flex;align-items:center;gap:var(--s-2);
+}
+.servicos-banner .caption::before{
+  content:"";width:8px;height:8px;border-radius:50%;
+  background:var(--amber);box-shadow:var(--glow-amber);
+}
+
+/* Sobre — imagem com decorações orbitais */
+.sobre-visual{
+  position:relative;
+  aspect-ratio:1;
+  max-width:520px;margin-inline:auto;width:100%;
+}
+.sobre-image-wrap{
+  position:relative;width:100%;height:100%;
+  border-radius:50%;
+  overflow:hidden;
+  border:1px solid var(--border-strong);
+  box-shadow:0 8px 40px rgba(0,0,0,.5), inset 0 0 0 1px rgba(56,189,248,.15);
+  background:var(--bg-card);
+  isolation:isolate;
+}
+.sobre-image-wrap img{
+  width:100%;height:100%;object-fit:cover;display:block;
+}
+.sobre-image-wrap::after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 100%, rgba(10,22,40,.55) 0%, transparent 60%),
+    linear-gradient(135deg, rgba(56,189,248,.1) 0%, transparent 50%, rgba(245,158,11,.06) 100%);
+  mix-blend-mode:screen;
+}
+/* Anel decorativo girando ao redor da foto */
+.sobre-ring{
+  position:absolute;
+  border:1px dashed rgba(56,189,248,.35);
+  border-radius:50%;
+  pointer-events:none;
+  animation:spin 40s linear infinite;
+}
+.sobre-ring.r-outer{inset:-6%}
+.sobre-ring.r-mid{inset:-14%;border-style:solid;border-color:var(--border);animation-duration:60s;animation-direction:reverse}
+.sobre-ring.r-outer::before,
+.sobre-ring.r-outer::after{
+  content:"";position:absolute;
+  width:10px;height:10px;border-radius:50%;
+}
+.sobre-ring.r-outer::before{
+  top:-5px;left:50%;
+  background:var(--holo);
+  box-shadow:0 0 16px var(--holo);
+}
+.sobre-ring.r-outer::after{
+  bottom:-5px;right:30%;
+  background:var(--amber);
+  box-shadow:var(--glow-amber);
+}
+
+/* =========================================================
+   14. SCROLL REVEAL
+   ========================================================= */
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .8s ease, transform .8s ease;
+  will-change:opacity, transform;
+}
+.reveal.visible{opacity:1;transform:none}
+.reveal[data-delay="1"]{transition-delay:.1s}
+.reveal[data-delay="2"]{transition-delay:.2s}
+.reveal[data-delay="3"]{transition-delay:.3s}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+    scroll-behavior:auto !important;
+  }
+  .reveal{opacity:1;transform:none}
+}
+
+/* =========================================================
+   15. RESPONSIVO — AJUSTES FINOS
+   ========================================================= */
+@media (max-width:480px){
+  .hero{padding-top:calc(var(--s-8) + var(--s-4))}
+  .hero-actions .btn{flex:1;min-width:0}
+  .scroll-indicator{display:none}
+  .servico-num{font-size:1.1rem}
+  .cta-email{font-size:1.1rem;padding:var(--s-3) var(--s-4)}
+}
+
+@media (min-width:768px) and (max-width:1023px){
+  .hero{min-height:90vh}
+}
+</style>
 </head>
+
 <body>
-<div class="bg"></div>
-<div class="estrelas" id="estrelas"></div>
-<main class="page">
-  <header class="header">
-    <div class="flag-stripe"><span class="s1"></span><span class="s2"></span><span class="s1"></span></div>
-    <h1 class="site-title">miuraapp.com</h1>
-    <p class="site-sub">Projetos digitais &middot; Feitos com &#x1F49A;&#x1F49B;</p>
-  </header>
-  <div class="cards">
-    <a class="card card--album" href="https://album.miuraapp.com">
-      <div class="card-accent-bar"></div>
-      <span class="card-icon">&#x26BD;</span>
-      <span class="card-tag">Coleção</span>
-      <h2 class="card-title">Álbum Copa<br>do Mundo 2026</h2>
-      <p class="card-desc">Cole figurinhas das 48 seleções, troque com amigos e acompanhe seu progresso rumo ao álbum completo. Vai Brasil!</p>
-      <span class="card-btn">Acessar o álbum &rarr;</span>
-    </a>
-    <a class="card card--radar" href="https://radarmm.miuraapp.com">
-      <div class="card-accent-bar"></div>
-      <span class="card-icon">&#x1F4E1;</span>
-      <span class="card-tag">Gestão</span>
-      <h2 class="card-title">Radar MM</h2>
-      <p class="card-desc">Painel de acompanhamento e gestão de projetos. Visualize entregas, prazos e indicadores em tempo real.</p>
-      <span class="card-btn">Acessar o radar &rarr;</span>
-    </a>
+
+<a href="#main" class="skip-link">Pular para o conteúdo</a>
+
+<!-- ========================= HEADER ========================= -->
+<header class="site-header" id="header">
+  <div class="container">
+    <nav class="nav" aria-label="Principal">
+      <a href="#hero" class="logo" aria-label="MiuraAPP — página inicial">
+        <span class="logo-dot" aria-hidden="true"></span>
+        <span>MiuraAPP</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#abordagem">Abordagem</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#contato" class="nav-cta btn btn-primary">Conversar</a></li>
+      </ul>
+
+      <button class="menu-toggle" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+    </nav>
   </div>
-  <footer class="footer">Brasil &middot; 2026</footer>
+</header>
+
+<!-- ========================= MAIN ========================= -->
+<main id="main">
+
+  <!-- ============ VÍDEO BANNER ============ -->
+  <section class="video-banner" aria-label="Vídeo de abertura">
+    <video class="video-banner-media"
+           autoplay loop muted playsinline
+           poster="videos/opt/poster.jpg"
+           preload="auto"
+           disablepictureinpicture
+           aria-hidden="true">
+      <source src="videos/opt/hero.mp4" type="video/mp4">
+      Seu navegador não suporta vídeo HTML5.
+    </video>
+    <div class="video-banner-overlay" aria-hidden="true"></div>
+  </section>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero" aria-labelledby="hero-title">
+    <div class="hero-grid-bg" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="hero-layout">
+        <div class="hero-content">
+          <span class="eyebrow hero-eyebrow reveal">Brasília · Desenvolvimento de IA</span>
+
+          <h1 id="hero-title" class="reveal" data-delay="1">
+            Inteligência artificial <span class="accent">que entrega</span>, não que finge.
+          </h1>
+
+          <p class="hero-sub reveal" data-delay="2">
+            Construo agentes, automações e sistemas de IA que rodam em produção — para empresas que querem operar com inteligência artificial de verdade, não apenas falar sobre ela.
+          </p>
+
+          <div class="hero-actions reveal" data-delay="3">
+            <a href="#projetos" class="btn btn-primary">
+              Ver projetos
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="#contato" class="btn btn-secondary">
+              Conversar
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" data-delay="2">
+          <figure class="section-image">
+            <img src="imgs/opt/hero.jpg"
+                 alt="Cientista e robô humanoide trabalhando juntos em laboratório de pesquisa genética, com hologramas de DNA, redes neurais e análise de proteínas projetados ao redor."
+                 width="1400" height="1466" decoding="async">
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator" aria-hidden="true">
+      <span>Scroll</span>
+      <span class="line"></span>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <section class="marquee" aria-label="Especialidades técnicas">
+    <div class="marquee-track" aria-hidden="true">
+      <span>Agentes Autônomos</span>
+      <span>Modelos de Linguagem</span>
+      <span>RAG &amp; Busca Semântica</span>
+      <span>Automação Inteligente</span>
+      <span>Model Context Protocol</span>
+      <span>Computer Use</span>
+      <span>Voice AI</span>
+      <span>Fine-Tuning</span>
+      <span>APIs &amp; Integrações</span>
+      <!-- duplicado para loop perfeito -->
+      <span>Agentes Autônomos</span>
+      <span>Modelos de Linguagem</span>
+      <span>RAG &amp; Busca Semântica</span>
+      <span>Automação Inteligente</span>
+      <span>Model Context Protocol</span>
+      <span>Computer Use</span>
+      <span>Voice AI</span>
+      <span>Fine-Tuning</span>
+      <span>APIs &amp; Integrações</span>
+    </div>
+    <p class="sr-only">Especialidades: agentes autônomos, modelos de linguagem, RAG e busca semântica, automação inteligente, Model Context Protocol, Computer Use, Voice AI, fine-tuning, APIs e integrações.</p>
+  </section>
+
+  <!-- ============ ABORDAGEM ============ -->
+  <section class="abordagem" id="abordagem" data-section aria-labelledby="abordagem-title">
+    <div class="container">
+      <div class="abordagem-grid">
+        <div class="abordagem-heading reveal">
+          <span class="eyebrow" style="margin-bottom:var(--s-4);display:inline-flex">Abordagem</span>
+          <h2 id="abordagem-title" style="margin-top:var(--s-3)">
+            Ideias ambiciosas, <em>colocadas para rodar.</em>
+          </h2>
+        </div>
+
+        <div class="abordagem-text reveal" data-delay="1">
+          <p>
+            Cada projeto começa pelo <strong>problema real</strong> — não pela tecnologia da moda. A pergunta é sempre a mesma: o que precisa acontecer todo dia, e como a IA pode fazer isso melhor, mais barato ou mais rápido?
+          </p>
+          <p>
+            O resultado é software que sua equipe usa de verdade. Sem demo bonita que nunca chega em produção. Sem agente que alucina em cliente. Sem pipeline que ninguém entende.
+          </p>
+        </div>
+
+        <figure class="abordagem-image section-image reveal" data-delay="2">
+          <img src="imgs/opt/abordagem.jpg" loading="lazy"
+               alt="Mão humana e mão robótica se tocando sobre um tablet com circuito de IA brilhante, simbolizando a parceria entre pessoas e máquinas."
+               width="1100" height="1167" decoding="async">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVIÇOS ============ -->
+  <section class="servicos" id="servicos" data-section aria-labelledby="servicos-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">O que eu faço</span>
+        <h2 id="servicos-title">Serviços</h2>
+        <p>Seis frentes de trabalho, sempre com foco em produção. Use uma, combine várias.</p>
+      </div>
+
+      <figure class="servicos-banner section-image reveal">
+        <img src="imgs/opt/servicos.jpg" loading="lazy"
+             alt="Robô humanoide operando estação de trabalho com três monitores exibindo código, redes neurais em treinamento e gráficos de métricas em laboratório de IA."
+             width="1600" height="873" decoding="async">
+        <span class="caption" aria-hidden="true">Em produção · 24/7</span>
+      </figure>
+
+      <ol class="servicos-list" aria-label="Lista de serviços">
+        <li class="servico reveal">
+          <div class="servico-num">01</div>
+          <div class="servico-body">
+            <h3>Agentes de IA</h3>
+            <p>Agentes que tomam decisões, usam ferramentas, lembram do contexto e operam por horas sem supervisão. Orquestração multi-agente quando faz sentido.</p>
+          </div>
+          <div class="servico-tags" aria-label="Tecnologias">
+            <span class="tag">Claude Agent SDK</span>
+            <span class="tag">LangGraph</span>
+            <span class="tag">Memória persistente</span>
+          </div>
+        </li>
+
+        <li class="servico reveal">
+          <div class="servico-num">02</div>
+          <div class="servico-body">
+            <h3>Automação inteligente</h3>
+            <p>Fluxos que conversam com seus sistemas, leem documentos, respondem clientes e disparam ações — com IA decidindo o que fazer em cada bifurcação.</p>
+          </div>
+          <div class="servico-tags" aria-label="Tecnologias">
+            <span class="tag">n8n</span>
+            <span class="tag">APIs</span>
+            <span class="tag">Webhooks</span>
+          </div>
+        </li>
+
+        <li class="servico reveal">
+          <div class="servico-num">03</div>
+          <div class="servico-body">
+            <h3>RAG &amp; busca semântica</h3>
+            <p>Conhecimento da empresa indexado, recuperado e usado pelo modelo na hora certa. Reranking, citações e respostas que dá para auditar.</p>
+          </div>
+          <div class="servico-tags" aria-label="Tecnologias">
+            <span class="tag">pgvector</span>
+            <span class="tag">Embeddings</span>
+            <span class="tag">Reranking</span>
+          </div>
+        </li>
+
+        <li class="servico reveal">
+          <div class="servico-num">04</div>
+          <div class="servico-body">
+            <h3>MCPs e integrações</h3>
+            <p>Conectores Model Context Protocol que dão ao agente acesso seguro aos seus dados, ferramentas e ambientes — internos ou de terceiros.</p>
+          </div>
+          <div class="servico-tags" aria-label="Tecnologias">
+            <span class="tag">MCP</span>
+            <span class="tag">Tool Calling</span>
+            <span class="tag">OAuth</span>
+          </div>
+        </li>
+
+        <li class="servico reveal">
+          <div class="servico-num">05</div>
+          <div class="servico-body">
+            <h3>Computer Use &amp; Browser Agents</h3>
+            <p>Agentes que operam um computador como uma pessoa — clicam, digitam, preenchem formulários e completam tarefas em sistemas que não têm API.</p>
+          </div>
+          <div class="servico-tags" aria-label="Tecnologias">
+            <span class="tag">Computer Use</span>
+            <span class="tag">Playwright</span>
+            <span class="tag">Vision</span>
+          </div>
+        </li>
+
+        <li class="servico reveal">
+          <div class="servico-num">06</div>
+          <div class="servico-body">
+            <h3>Consultoria &amp; arquitetura</h3>
+            <p>Quando você tem um problema e precisa decidir antes de escrever código: qual modelo, qual stack, quanto vai custar, o que terceirizar e o que não fazer.</p>
+          </div>
+          <div class="servico-tags" aria-label="Tecnologias">
+            <span class="tag">Arquitetura</span>
+            <span class="tag">Roadmap</span>
+            <span class="tag">FinOps de IA</span>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ PROJETOS ============ -->
+  <section class="projetos" id="projetos" data-section aria-labelledby="projetos-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Trabalhos recentes</span>
+        <h2 id="projetos-title">Projetos</h2>
+        <p>Uma amostra do que está em produção hoje. Cada um resolveu um problema específico, não um genérico.</p>
+      </div>
+
+      <div class="projetos-grid">
+        <article class="projeto-card reveal">
+          <div class="projeto-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="3" y="3" width="7" height="7" rx="1"/>
+              <rect x="14" y="3" width="7" height="7" rx="1"/>
+              <rect x="3" y="14" width="7" height="7" rx="1"/>
+              <rect x="14" y="14" width="7" height="7" rx="1"/>
+            </svg>
+          </div>
+          <h3>Dashboard EAP</h3>
+          <p>Sistema completo de gestão de projetos com Kanban, Status Report mensal e sincronização em tempo real entre Google Sheets e banco de dados.</p>
+          <div class="projeto-stack">
+            <span>Supabase</span>
+            <span>Google Apps Script</span>
+            <span>JavaScript</span>
+            <span>RLS</span>
+          </div>
+        </article>
+
+        <article class="projeto-card reveal" data-delay="1">
+          <div class="projeto-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21 12a9 9 0 1 1-3.7-7.3L21 2v6h-6"/>
+            </svg>
+          </div>
+          <h3>Bot WhatsApp com Claude</h3>
+          <p>Atendente virtual integrado ao WhatsApp via Evolution API, com memória de conversa, acesso a base de conhecimento e roteamento humano quando precisa.</p>
+          <div class="projeto-stack">
+            <span>Claude API</span>
+            <span>Evolution API</span>
+            <span>Node.js</span>
+            <span>Dokploy</span>
+          </div>
+        </article>
+
+        <article class="projeto-card reveal" data-delay="2">
+          <div class="projeto-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 2 2 7l10 5 10-5-10-5z"/>
+              <path d="m2 17 10 5 10-5"/>
+              <path d="m2 12 10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>OpenClaw + Chatwoot</h3>
+          <p>Bridge de atendimento multicanal (Telegram, WhatsApp) com menu de gestão de projetos, relatórios sob demanda e troca de modelo de IA em runtime.</p>
+          <div class="projeto-stack">
+            <span>Chatwoot</span>
+            <span>Telegram</span>
+            <span>Node.js</span>
+            <span>Docker</span>
+          </div>
+        </article>
+
+        <article class="projeto-card reveal" data-delay="3">
+          <div class="projeto-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M2 12h20"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <h3>Álbum Copa N×M</h3>
+          <p>App web de troca de figurinhas com modelo N×M de reservas, autenticação, RLS por usuário e infraestrutura self-hosted em VPS dedicada.</p>
+          <div class="projeto-stack">
+            <span>Supabase self-hosted</span>
+            <span>PostgREST</span>
+            <span>PHP</span>
+            <span>OpenLiteSpeed</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOBRE ============ -->
+  <section class="sobre" id="sobre" data-section aria-labelledby="sobre-title">
+    <div class="container">
+      <div class="sobre-grid">
+
+        <div class="sobre-visual reveal">
+          <div class="sobre-ring r-mid" aria-hidden="true"></div>
+          <div class="sobre-ring r-outer" aria-hidden="true"></div>
+          <figure class="sobre-image-wrap">
+            <img src="imgs/opt/sobre.jpg" loading="lazy"
+                 alt="Robô humanoide conversando com um senhor idoso em um banco de parque ao pôr do sol, ambos analisando hologramas com fotos antigas, mapas e linha do tempo de vida."
+                 width="1100" height="1145" decoding="async">
+          </figure>
+        </div>
+
+        <div class="sobre-text reveal" data-delay="1">
+          <span class="eyebrow" style="margin-bottom:var(--s-3);display:inline-flex">Quem está por trás</span>
+          <h2 id="sobre-title" style="margin:var(--s-3) 0 var(--s-4)">Engenheiro, gestor e construtor.</h2>
+
+          <p>
+            Sou <strong>Mario Miura</strong>, engenheiro com mais de uma década entregando produtos digitais — de sistemas internos de gestão a aplicações públicas com milhões de usuários.
+          </p>
+          <p>
+            Nos últimos anos, mergulhei em IA aplicada: agentes, RAG, computer use, fine-tuning. O que me move é a parte chata e bonita ao mesmo tempo — fazer a IA <strong>funcionar todo dia</strong>, em escala, sob restrições reais de orçamento, prazo e equipe.
+          </p>
+          <p>
+            Trabalho de Brasília, sozinho ou montando time. Direto com quem decide, sem camadas.
+          </p>
+
+          <div class="sobre-stats">
+            <div>
+              <div class="stat-num">10+</div>
+              <div class="stat-label">Anos em produto</div>
+            </div>
+            <div>
+              <div class="stat-num">40+</div>
+              <div class="stat-label">Sistemas em produção</div>
+            </div>
+            <div>
+              <div class="stat-num">3</div>
+              <div class="stat-label">Stacks de IA dominadas</div>
+            </div>
+            <div>
+              <div class="stat-num">1</div>
+              <div class="stat-label">Fuso horário</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="cta" id="contato" data-section aria-labelledby="cta-title">
+    <div class="container">
+      <span class="eyebrow reveal">Vamos conversar</span>
+      <h2 id="cta-title" class="reveal" data-delay="1">
+        Tem um projeto de IA <em>parado em algum lugar?</em>
+      </h2>
+      <p class="reveal" data-delay="2">
+        Manda um email contando o problema. Respondo em até 48h, geralmente bem antes.
+      </p>
+      <a href="mailto:mariomiura@gmail.com" class="cta-email reveal" data-delay="3" aria-label="Enviar email para mariomiura@gmail.com">
+        <span class="dot" aria-hidden="true"></span>
+        mariomiura@gmail.com
+      </a>
+    </div>
+  </section>
+
 </main>
+
+<!-- ========================= FOOTER ========================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <span aria-hidden="true">© 2026</span> MiuraAPP · Brasília–DF
+      </div>
+      <ul class="footer-links" aria-label="Links externos">
+        <li><a href="mailto:mariomiura@gmail.com">Email</a></li>
+        <li><a href="https://github.com/" rel="noopener noreferrer" target="_blank">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/" rel="noopener noreferrer" target="_blank">LinkedIn</a></li>
+      </ul>
+      <div>Construído com IA, em Brasília.</div>
+    </div>
+  </div>
+</footer>
+
 <script>
-const c=document.getElementById('estrelas');
-for(let i=0;i<55;i++){const s=document.createElement('div');s.className='estrela';const z=Math.random()*3+1;s.style.cssText='width:'+z+'px;height:'+z+'px;top:'+(Math.random()*100)+'%;left:'+(Math.random()*100)+'%;--d:'+(Math.random()*4+2).toFixed(1)+'s;--delay:'+(Math.random()*5).toFixed(1)+'s;';c.appendChild(s);}
+(function(){
+  'use strict';
+
+  // ---------- Vídeo banner: velocidade 0,5x e respeito a reduced-motion ----------
+  const bannerVideo = document.querySelector('.video-banner-media');
+  if (bannerVideo) {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const setSpeed = () => { if (!reducedMotion.matches) bannerVideo.playbackRate = 0.5; };
+    const tryPlay = () => {
+      const p = bannerVideo.play();
+      if (p && typeof p.catch === 'function') {
+        p.catch(err => {
+          console.warn('[video-banner] Autoplay bloqueado:', err && err.message);
+          // Tenta de novo após primeira interação do usuário
+          const resume = () => {
+            bannerVideo.play().catch(()=>{});
+            document.removeEventListener('click', resume);
+            document.removeEventListener('touchstart', resume);
+            document.removeEventListener('keydown', resume);
+          };
+          document.addEventListener('click', resume, {once:true});
+          document.addEventListener('touchstart', resume, {once:true});
+          document.addEventListener('keydown', resume, {once:true});
+        });
+      }
+    };
+    const applyMotionPref = () => {
+      if (reducedMotion.matches) {
+        bannerVideo.pause();
+        bannerVideo.removeAttribute('autoplay');
+      } else {
+        setSpeed();
+        tryPlay();
+      }
+    };
+    // Diagnósticos úteis no console
+    bannerVideo.addEventListener('error', () => {
+      const err = bannerVideo.error;
+      console.error('[video-banner] Erro ao carregar:', err && err.code, err && err.message);
+    });
+    bannerVideo.addEventListener('loadedmetadata', setSpeed);
+    bannerVideo.addEventListener('play', setSpeed);
+    bannerVideo.addEventListener('loadeddata', () => console.info('[video-banner] Vídeo carregado.'));
+    applyMotionPref();
+    if (reducedMotion.addEventListener) {
+      reducedMotion.addEventListener('change', applyMotionPref);
+    }
+  }
+
+  // ---------- Header scroll state ----------
+  const header = document.getElementById('header');
+  let lastY = 0;
+  const onScroll = () => {
+    const y = window.scrollY;
+    header.classList.toggle('scrolled', y > 8);
+    lastY = y;
+  };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // ---------- Mobile menu ----------
+  const toggle = document.querySelector('.menu-toggle');
+  const navLinks = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+  });
+  // Fecha menu ao clicar em um link
+  navLinks.addEventListener('click', e => {
+    if(e.target.tagName === 'A' && navLinks.classList.contains('open')){
+      navLinks.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+      toggle.setAttribute('aria-label','Abrir menu');
+    }
+  });
+  // Fecha menu com Esc
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape' && navLinks.classList.contains('open')){
+      navLinks.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+      toggle.focus();
+    }
+  });
+
+  // ---------- Scroll reveal via IntersectionObserver ----------
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reveals = document.querySelectorAll('.reveal');
+
+  if(reduced || !('IntersectionObserver' in window)){
+    reveals.forEach(el => el.classList.add('visible'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
+
+    reveals.forEach(el => io.observe(el));
+  }
+
+  // ---------- Smooth focus management para skip link ----------
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if(id.length > 1){
+        const target = document.querySelector(id);
+        if(target){
+          // smooth-scroll já está no CSS; gerencia foco para a11y
+          setTimeout(() => {
+            target.setAttribute('tabindex','-1');
+            target.focus({preventScroll:true});
+          }, 400);
+        }
+      }
+    });
+  });
+
+})();
 </script>
+
 </body>
 </html>
