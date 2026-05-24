@@ -6,11 +6,9 @@
 <meta name="theme-color" content="#0a1628">
 <meta name="description" content="MiuraAPP — desenvolvimento de soluções de Inteligência Artificial em Brasília. Agentes autônomos, automações e sistemas de IA que rodam em produção.">
 <title>MiuraAPP — Desenvolvimento de IA em Brasília</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
 <style>
 /* =========================================================
    1. RESET E TOKENS DE DESIGN
@@ -21,7 +19,6 @@ img,svg,video{display:block;max-width:100%;height:auto}
 button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 a{color:inherit;text-decoration:none}
 ul,ol{list-style:none}
-
 :root{
   /* Paleta — azuis profundos */
   --bg:#0a1628;
@@ -45,19 +42,15 @@ ul,ol{list-style:none}
   --shadow-card:0 8px 32px rgba(0,0,0,.4);
   --glow-holo:0 0 0 3px rgba(56,189,248,.15);
   --glow-amber:0 0 24px rgba(245,158,11,.35);
-
   /* Espaçamento — grid 8px */
   --s-1:4px;--s-2:8px;--s-3:16px;--s-4:24px;--s-5:32px;
   --s-6:48px;--s-7:64px;--s-8:96px;--s-9:128px;
-
   /* Border radius */
   --r-1:4px;--r-2:8px;--r-3:16px;--r-pill:999px;
-
   /* Tipografia */
   --font-display:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;
   --font-body:"Inter",ui-sans-serif,system-ui,sans-serif;
 }
-
 /* =========================================================
    2. BASE
    ========================================================= */
@@ -73,18 +66,15 @@ body{
   min-height:100vh;
 }
 ::selection{background:var(--brand);color:var(--title)}
-
 h1,h2,h3,h4,h5{font-family:var(--font-display);color:var(--title);line-height:1.05;letter-spacing:-0.02em;font-weight:600}
 h1{font-size:clamp(2.8rem,6.5vw,5.5rem)}
 h2{font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-0.015em}
 h3{font-size:clamp(1.2rem,2vw,1.4rem);letter-spacing:-0.01em}
 p{max-width:62ch}
-
 .container{
   width:min(100% - 2 * var(--s-4), 1200px);
   margin-inline:auto;
 }
-
 .eyebrow{
   font-family:var(--font-display);
   font-size:.78rem;
@@ -100,7 +90,6 @@ p{max-width:62ch}
   width:24px;height:1px;background:var(--holo);
   display:inline-block;
 }
-
 /* Acessibilidade — foco visível */
 :focus-visible{
   outline:2px solid var(--holo);
@@ -120,7 +109,6 @@ p{max-width:62ch}
   transition:top .2s ease;
 }
 .skip-link:focus{top:var(--s-3)}
-
 /* =========================================================
    3. BOTÕES
    ========================================================= */
@@ -154,7 +142,6 @@ p{max-width:62ch}
 }
 .btn .arrow{display:inline-block;transition:transform .25s ease}
 .btn:hover .arrow{transform:translateX(4px)}
-
 /* =========================================================
    4. HEADER
    ========================================================= */
@@ -208,7 +195,6 @@ p{max-width:62ch}
 .nav-links a:hover::after,.nav-links a:focus-visible::after{width:100%}
 .nav-cta{display:none}
 @media (min-width:768px){.nav-cta{display:inline-flex}}
-
 .menu-toggle{
   display:inline-flex;flex-direction:column;gap:5px;
   padding:var(--s-2);min-width:44px;min-height:44px;
@@ -223,7 +209,6 @@ p{max-width:62ch}
 .menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
 .menu-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 @media (min-width:768px){.menu-toggle{display:none}}
-
 @media (max-width:767px){
   .nav-links{
     position:fixed;top:64px;left:0;right:0;
@@ -240,7 +225,6 @@ p{max-width:62ch}
   .nav-links.open{transform:translateY(0)}
   .nav-links a{padding:var(--s-3) 0;width:100%;border-bottom:1px solid var(--border)}
 }
-
 /* =========================================================
    5. HERO
    ========================================================= */
@@ -330,7 +314,6 @@ p{max-width:62ch}
   0%{top:-50%}
   100%{top:110%}
 }
-
 /* =========================================================
    6. MARQUEE
    ========================================================= */
@@ -364,7 +347,6 @@ p{max-width:62ch}
   to{transform:translateX(-50%)}
 }
 .marquee:hover .marquee-track{animation-play-state:paused}
-
 /* =========================================================
    7. SEÇÕES GERAIS
    ========================================================= */
@@ -381,7 +363,6 @@ section[data-section]{
   max-width:780px;
 }
 .section-head p{color:var(--muted);font-size:1.1rem}
-
 /* =========================================================
    8. ABORDAGEM
    ========================================================= */
@@ -406,7 +387,6 @@ section[data-section]{
 }
 .abordagem-text p:last-child{margin-bottom:0}
 .abordagem-text strong{color:var(--text);font-weight:500}
-
 /* =========================================================
    9. SERVIÇOS — LISTA EDITORIAL NUMERADA
    ========================================================= */
@@ -465,7 +445,6 @@ section[data-section]{
   background:rgba(20,36,65,.4);
   white-space:nowrap;
 }
-
 /* =========================================================
    10. PROJETOS — GRID 2×2
    ========================================================= */
@@ -523,7 +502,14 @@ section[data-section]{
 .projeto-stack span:not(:last-child)::after{
   content:"·";margin-left:var(--s-1);color:var(--border-strong);
 }
-
+.projeto-open{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-top:var(--s-3);
+  font-family:var(--font-display);font-weight:500;font-size:.82rem;
+  color:var(--holo);letter-spacing:-0.005em;
+}
+.projeto-open .arrow{transition:transform .25s ease}
+.projeto-card:hover .projeto-open .arrow{transform:translate(3px,-3px)}
 /* =========================================================
    11. SOBRE — STATS
    ========================================================= */
@@ -536,7 +522,6 @@ section[data-section]{
 @media (min-width:900px){
   .sobre-grid{grid-template-columns:1fr 1fr;gap:var(--s-8)}
 }
-
 .sobre-stats{
   display:grid;grid-template-columns:repeat(2,1fr);
   gap:var(--s-4);
@@ -559,12 +544,10 @@ section[data-section]{
 .sobre-text p{color:var(--muted);margin-bottom:var(--s-3)}
 .sobre-text p:last-of-type{margin-bottom:0}
 .sobre-text strong{color:var(--text);font-weight:500}
-
 @keyframes spin{
   from{transform:rotate(0)}
   to{transform:rotate(360deg)}
 }
-
 /* =========================================================
    12. CTA
    ========================================================= */
@@ -608,7 +591,6 @@ section[data-section]{
   background:var(--amber);box-shadow:var(--glow-amber);
   flex-shrink:0;
 }
-
 /* =========================================================
    13. FOOTER
    ========================================================= */
@@ -629,7 +611,6 @@ section[data-section]{
 .footer-grid a{color:var(--muted);transition:color .25s ease}
 .footer-grid a:hover,.footer-grid a:focus-visible{color:var(--holo)}
 .footer-links{display:flex;gap:var(--s-4);flex-wrap:wrap;justify-content:center}
-
 /* =========================================================
    13a. VIDEO BANNER (topo da página)
    ========================================================= */
@@ -675,7 +656,6 @@ section[data-section]{
   background:linear-gradient(to bottom, transparent, var(--holo));
   opacity:.7;
 }
-
 /* =========================================================
    13b. IMAGENS DE SEÇÃO
    ========================================================= */
@@ -705,7 +685,6 @@ section[data-section]{
   box-shadow:inset 0 0 0 1px rgba(56,189,248,.12);
 }
 .section-image:hover img{transform:scale(1.02)}
-
 /* Hero — layout 2 colunas em desktop */
 .hero-layout{
   display:grid;gap:var(--s-6);
@@ -737,7 +716,6 @@ section[data-section]{
 }
 .hero-visual .section-image{position:relative;z-index:1;height:100%}
 .hero-visual .section-image img{height:100%;object-fit:cover}
-
 /* Abordagem — grid com imagem */
 .abordagem-image{
   margin-top:var(--s-5);
@@ -756,7 +734,6 @@ section[data-section]{
   .abordagem-image{grid-area:image;margin-top:0;aspect-ratio:4/5;align-self:stretch;height:100%}
 }
 .abordagem-image img{height:100%;object-fit:cover}
-
 /* Serviços — banner landscape */
 .servicos-banner{
   margin:0 auto var(--s-7);
@@ -782,7 +759,6 @@ section[data-section]{
   content:"";width:8px;height:8px;border-radius:50%;
   background:var(--amber);box-shadow:var(--glow-amber);
 }
-
 /* Sobre — imagem com decorações orbitais */
 .sobre-visual{
   position:relative;
@@ -833,7 +809,6 @@ section[data-section]{
   background:var(--amber);
   box-shadow:var(--glow-amber);
 }
-
 /* =========================================================
    14. SCROLL REVEAL
    ========================================================= */
@@ -847,7 +822,6 @@ section[data-section]{
 .reveal[data-delay="1"]{transition-delay:.1s}
 .reveal[data-delay="2"]{transition-delay:.2s}
 .reveal[data-delay="3"]{transition-delay:.3s}
-
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{
     animation-duration:.01ms !important;
@@ -857,7 +831,6 @@ section[data-section]{
   }
   .reveal{opacity:1;transform:none}
 }
-
 /* =========================================================
    15. RESPONSIVO — AJUSTES FINOS
    ========================================================= */
@@ -868,17 +841,13 @@ section[data-section]{
   .servico-num{font-size:1.1rem}
   .cta-email{font-size:1.1rem;padding:var(--s-3) var(--s-4)}
 }
-
 @media (min-width:768px) and (max-width:1023px){
   .hero{min-height:90vh}
 }
 </style>
 </head>
-
 <body>
-
 <a href="#main" class="skip-link">Pular para o conteúdo</a>
-
 <!-- ========================= HEADER ========================= -->
 <header class="site-header" id="header">
   <div class="container">
@@ -887,7 +856,6 @@ section[data-section]{
         <span class="logo-dot" aria-hidden="true"></span>
         <span>MiuraAPP</span>
       </a>
-
       <ul class="nav-links" id="navLinks">
         <li><a href="#abordagem">Abordagem</a></li>
         <li><a href="#servicos">Serviços</a></li>
@@ -895,7 +863,6 @@ section[data-section]{
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#contato" class="nav-cta btn btn-primary">Conversar</a></li>
       </ul>
-
       <button class="menu-toggle" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menu">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -904,10 +871,8 @@ section[data-section]{
     </nav>
   </div>
 </header>
-
 <!-- ========================= MAIN ========================= -->
 <main id="main">
-
   <!-- ============ VÍDEO BANNER ============ -->
   <section class="video-banner" aria-label="Vídeo de abertura">
     <video class="video-banner-media"
@@ -921,25 +886,20 @@ section[data-section]{
     </video>
     <div class="video-banner-overlay" aria-hidden="true"></div>
   </section>
-
   <!-- ============ HERO ============ -->
   <section class="hero" id="hero" aria-labelledby="hero-title">
     <div class="hero-grid-bg" aria-hidden="true"></div>
     <div class="hero-glow" aria-hidden="true"></div>
-
     <div class="container">
       <div class="hero-layout">
         <div class="hero-content">
           <span class="eyebrow hero-eyebrow reveal">Brasília · Desenvolvimento de IA</span>
-
           <h1 id="hero-title" class="reveal" data-delay="1">
             Inteligência artificial <span class="accent">que entrega</span>, não que finge.
           </h1>
-
           <p class="hero-sub reveal" data-delay="2">
             Construo agentes, automações e sistemas de IA que rodam em produção — para empresas que querem operar com inteligência artificial de verdade, não apenas falar sobre ela.
           </p>
-
           <div class="hero-actions reveal" data-delay="3">
             <a href="#projetos" class="btn btn-primary">
               Ver projetos
@@ -950,7 +910,6 @@ section[data-section]{
             </a>
           </div>
         </div>
-
         <div class="hero-visual reveal" data-delay="2">
           <figure class="section-image">
             <img src="imgs/opt/hero.jpg"
@@ -960,13 +919,11 @@ section[data-section]{
         </div>
       </div>
     </div>
-
     <div class="scroll-indicator" aria-hidden="true">
       <span>Scroll</span>
       <span class="line"></span>
     </div>
   </section>
-
   <!-- ============ MARQUEE ============ -->
   <section class="marquee" aria-label="Especialidades técnicas">
     <div class="marquee-track" aria-hidden="true">
@@ -992,7 +949,6 @@ section[data-section]{
     </div>
     <p class="sr-only">Especialidades: agentes autônomos, modelos de linguagem, RAG e busca semântica, automação inteligente, Model Context Protocol, Computer Use, Voice AI, fine-tuning, APIs e integrações.</p>
   </section>
-
   <!-- ============ ABORDAGEM ============ -->
   <section class="abordagem" id="abordagem" data-section aria-labelledby="abordagem-title">
     <div class="container">
@@ -1003,7 +959,6 @@ section[data-section]{
             Ideias ambiciosas, <em>colocadas para rodar.</em>
           </h2>
         </div>
-
         <div class="abordagem-text reveal" data-delay="1">
           <p>
             Cada projeto começa pelo <strong>problema real</strong> — não pela tecnologia da moda. A pergunta é sempre a mesma: o que precisa acontecer todo dia, e como a IA pode fazer isso melhor, mais barato ou mais rápido?
@@ -1012,7 +967,6 @@ section[data-section]{
             O resultado é software que sua equipe usa de verdade. Sem demo bonita que nunca chega em produção. Sem agente que alucina em cliente. Sem pipeline que ninguém entende.
           </p>
         </div>
-
         <figure class="abordagem-image section-image reveal" data-delay="2">
           <img src="imgs/opt/abordagem.jpg" loading="lazy"
                alt="Mão humana e mão robótica se tocando sobre um tablet com circuito de IA brilhante, simbolizando a parceria entre pessoas e máquinas."
@@ -1021,7 +975,6 @@ section[data-section]{
       </div>
     </div>
   </section>
-
   <!-- ============ SERVIÇOS ============ -->
   <section class="servicos" id="servicos" data-section aria-labelledby="servicos-title">
     <div class="container">
@@ -1030,14 +983,12 @@ section[data-section]{
         <h2 id="servicos-title">Serviços</h2>
         <p>Seis frentes de trabalho, sempre com foco em produção. Use uma, combine várias.</p>
       </div>
-
       <figure class="servicos-banner section-image reveal">
         <img src="imgs/opt/servicos.jpg" loading="lazy"
              alt="Robô humanoide operando estação de trabalho com três monitores exibindo código, redes neurais em treinamento e gráficos de métricas em laboratório de IA."
              width="1600" height="873" decoding="async">
         <span class="caption" aria-hidden="true">Em produção · 24/7</span>
       </figure>
-
       <ol class="servicos-list" aria-label="Lista de serviços">
         <li class="servico reveal">
           <div class="servico-num">01</div>
@@ -1051,7 +1002,6 @@ section[data-section]{
             <span class="tag">Memória persistente</span>
           </div>
         </li>
-
         <li class="servico reveal">
           <div class="servico-num">02</div>
           <div class="servico-body">
@@ -1064,7 +1014,6 @@ section[data-section]{
             <span class="tag">Webhooks</span>
           </div>
         </li>
-
         <li class="servico reveal">
           <div class="servico-num">03</div>
           <div class="servico-body">
@@ -1077,7 +1026,6 @@ section[data-section]{
             <span class="tag">Reranking</span>
           </div>
         </li>
-
         <li class="servico reveal">
           <div class="servico-num">04</div>
           <div class="servico-body">
@@ -1090,7 +1038,6 @@ section[data-section]{
             <span class="tag">OAuth</span>
           </div>
         </li>
-
         <li class="servico reveal">
           <div class="servico-num">05</div>
           <div class="servico-body">
@@ -1103,7 +1050,6 @@ section[data-section]{
             <span class="tag">Vision</span>
           </div>
         </li>
-
         <li class="servico reveal">
           <div class="servico-num">06</div>
           <div class="servico-body">
@@ -1119,18 +1065,59 @@ section[data-section]{
       </ol>
     </div>
   </section>
-
   <!-- ============ PROJETOS ============ -->
   <section class="projetos" id="projetos" data-section aria-labelledby="projetos-title">
     <div class="container">
       <div class="section-head reveal">
-        <span class="eyebrow">Trabalhos recentes</span>
+        <span class="eyebrow">No ar agora</span>
         <h2 id="projetos-title">Projetos</h2>
-        <p>Uma amostra do que está em produção hoje. Cada um resolveu um problema específico, não um genérico.</p>
+        <p>Tudo o que está rodando neste momento, em produção. Clique em qualquer card para abrir o app.</p>
       </div>
-
       <div class="projetos-grid">
-        <article class="projeto-card reveal">
+
+        <!-- Explorador Estatístico de Textos -->
+        <a class="projeto-card reveal" href="https://estatistica.mariojapa.com" target="_blank" rel="noopener noreferrer" aria-label="Abrir o Explorador Estatístico de Textos (nova aba)">
+          <div class="projeto-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M3 3v18h18"/>
+              <rect x="7" y="11" width="3" height="7" rx="1"/>
+              <rect x="12" y="7" width="3" height="11" rx="1"/>
+              <rect x="17" y="4" width="3" height="14" rx="1"/>
+            </svg>
+          </div>
+          <h3>Explorador Estatístico de Textos</h3>
+          <p>Envie PDF, Word, TXT ou CSV e obtenha frequência de palavras, TF-IDF, análise de sentimento, nuvem de palavras, bigramas e busca por contexto (KWIC).</p>
+          <div class="projeto-stack">
+            <span>R</span>
+            <span>Shiny</span>
+            <span>tidytext</span>
+            <span>Docker</span>
+          </div>
+          <span class="projeto-open" aria-hidden="true">Abrir app <span class="arrow">↗</span></span>
+        </a>
+
+        <!-- RAG — pergunte aos seus documentos -->
+        <a class="projeto-card reveal" data-delay="1" href="https://rag.mariojapa.com" target="_blank" rel="noopener noreferrer" aria-label="Abrir o RAG — pergunte aos seus documentos (nova aba)">
+          <div class="projeto-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="11" cy="11" r="7"/>
+              <path d="m21 21-4.3-4.3"/>
+              <path d="M11 8v6M8 11h6"/>
+            </svg>
+          </div>
+          <h3>RAG — pergunte aos documentos</h3>
+          <p>Faça upload de documentos e pergunte em linguagem natural. As respostas são geradas pela IA com base nos trechos recuperados — e mostram as fontes.</p>
+          <div class="projeto-stack">
+            <span>FastAPI</span>
+            <span>pgvector</span>
+            <span>Embeddings</span>
+            <span>Claude API</span>
+          </div>
+          <span class="projeto-open" aria-hidden="true">Abrir app <span class="arrow">↗</span></span>
+        </a>
+
+        <!-- Dashboard EAP -->
+        <a class="projeto-card reveal" data-delay="2" href="https://radarmm.miuraapp.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o Dashboard EAP (nova aba)">
           <div class="projeto-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
               <rect x="3" y="3" width="7" height="7" rx="1"/>
@@ -1147,25 +1134,29 @@ section[data-section]{
             <span>JavaScript</span>
             <span>RLS</span>
           </div>
-        </article>
+          <span class="projeto-open" aria-hidden="true">Abrir app <span class="arrow">↗</span></span>
+        </a>
 
-        <article class="projeto-card reveal" data-delay="1">
+        <!-- Assistente conversacional (Telegram & WhatsApp) -->
+        <a class="projeto-card reveal" data-delay="3" href="https://t.me/Bot_Francielle" target="_blank" rel="noopener noreferrer" aria-label="Abrir o assistente conversacional no Telegram (nova aba)">
           <div class="projeto-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M21 12a9 9 0 1 1-3.7-7.3L21 2v6h-6"/>
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
             </svg>
           </div>
-          <h3>Bot WhatsApp com Claude</h3>
-          <p>Atendente virtual integrado ao WhatsApp via Evolution API, com memória de conversa, acesso a base de conhecimento e roteamento humano quando precisa.</p>
+          <h3>Assistente conversacional</h3>
+          <p>Atendente virtual no Telegram e WhatsApp, com memória de conversa, acesso a base de conhecimento via RAG e roteamento humano quando precisa.</p>
           <div class="projeto-stack">
             <span>Claude API</span>
             <span>Evolution API</span>
             <span>Node.js</span>
             <span>Dokploy</span>
           </div>
-        </article>
+          <span class="projeto-open" aria-hidden="true">Abrir no Telegram <span class="arrow">↗</span></span>
+        </a>
 
-        <article class="projeto-card reveal" data-delay="2">
+        <!-- OpenClaw + Chatwoot -->
+        <a class="projeto-card reveal" data-delay="1" href="https://chatwoot.mariojapa.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o Chatwoot (nova aba)">
           <div class="projeto-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
               <path d="M12 2 2 7l10 5 10-5-10-5z"/>
@@ -1181,9 +1172,11 @@ section[data-section]{
             <span>Node.js</span>
             <span>Docker</span>
           </div>
-        </article>
+          <span class="projeto-open" aria-hidden="true">Abrir app <span class="arrow">↗</span></span>
+        </a>
 
-        <article class="projeto-card reveal" data-delay="3">
+        <!-- Álbum Copa N×M -->
+        <a class="projeto-card reveal" data-delay="2" href="https://album.miuraapp.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o Álbum Copa N×M (nova aba)">
           <div class="projeto-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
               <circle cx="12" cy="12" r="10"/>
@@ -1199,16 +1192,16 @@ section[data-section]{
             <span>PHP</span>
             <span>OpenLiteSpeed</span>
           </div>
-        </article>
+          <span class="projeto-open" aria-hidden="true">Abrir app <span class="arrow">↗</span></span>
+        </a>
+
       </div>
     </div>
   </section>
-
   <!-- ============ SOBRE ============ -->
   <section class="sobre" id="sobre" data-section aria-labelledby="sobre-title">
     <div class="container">
       <div class="sobre-grid">
-
         <div class="sobre-visual reveal">
           <div class="sobre-ring r-mid" aria-hidden="true"></div>
           <div class="sobre-ring r-outer" aria-hidden="true"></div>
@@ -1218,11 +1211,9 @@ section[data-section]{
                  width="1100" height="1145" decoding="async">
           </figure>
         </div>
-
         <div class="sobre-text reveal" data-delay="1">
           <span class="eyebrow" style="margin-bottom:var(--s-3);display:inline-flex">Quem está por trás</span>
           <h2 id="sobre-title" style="margin:var(--s-3) 0 var(--s-4)">Engenheiro, gestor e construtor.</h2>
-
           <p>
             Sou <strong>Mario Miura</strong>, engenheiro com mais de uma década entregando produtos digitais — de sistemas internos de gestão a aplicações públicas com usuários.
           </p>
@@ -1232,7 +1223,6 @@ section[data-section]{
           <p>
             Trabalho de Brasília, sozinho ou montando time. Direto com quem decide, sem camadas.
           </p>
-
           <div class="sobre-stats">
             <div>
               <div class="stat-num">30+</div>
@@ -1252,11 +1242,9 @@ section[data-section]{
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
-
   <!-- ============ CTA ============ -->
   <section class="cta" id="contato" data-section aria-labelledby="cta-title">
     <div class="container">
@@ -1273,9 +1261,7 @@ section[data-section]{
       </a>
     </div>
   </section>
-
 </main>
-
 <!-- ========================= FOOTER ========================= -->
 <footer class="site-footer">
   <div class="container">
@@ -1291,11 +1277,9 @@ section[data-section]{
     </div>
   </div>
 </footer>
-
 <script>
 (function(){
   'use strict';
-
   // ---------- Vídeo banner: velocidade 0,5x e respeito a reduced-motion ----------
   const bannerVideo = document.querySelector('.video-banner-media');
   if (bannerVideo) {
@@ -1341,7 +1325,6 @@ section[data-section]{
       reducedMotion.addEventListener('change', applyMotionPref);
     }
   }
-
   // ---------- Header scroll state ----------
   const header = document.getElementById('header');
   let lastY = 0;
@@ -1352,7 +1335,6 @@ section[data-section]{
   };
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
-
   // ---------- Mobile menu ----------
   const toggle = document.querySelector('.menu-toggle');
   const navLinks = document.getElementById('navLinks');
@@ -1377,11 +1359,9 @@ section[data-section]{
       toggle.focus();
     }
   });
-
   // ---------- Scroll reveal via IntersectionObserver ----------
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const reveals = document.querySelectorAll('.reveal');
-
   if(reduced || !('IntersectionObserver' in window)){
     reveals.forEach(el => el.classList.add('visible'));
   } else {
@@ -1393,10 +1373,8 @@ section[data-section]{
         }
       });
     }, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
-
     reveals.forEach(el => io.observe(el));
   }
-
   // ---------- Smooth focus management para skip link ----------
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
@@ -1413,9 +1391,7 @@ section[data-section]{
       }
     });
   });
-
 })();
 </script>
-
 </body>
 </html>
