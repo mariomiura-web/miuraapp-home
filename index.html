@@ -1087,10 +1087,30 @@ section[data-section]{
         <h2 id="projetos-title">Projetos</h2>
         <p>Tudo o que está rodando neste momento, em produção. Clique em qualquer card para abrir o app.</p>
       </div>
-      <div class="projetos-grid">
+     <div class="projetos-grid">
 
-        <!-- Explorador Estatístico de Textos -->
-        <a class="projeto-card reveal" href="https://estatistica.mariojapa.com" target="_blank" rel="noopener noreferrer" aria-label="Abrir o Explorador Estatístico de Textos (nova aba)">
+        <!-- 01. Agentes de IA / RAG -->
+        <a class="projeto-card reveal" href="https://rag.mariojapa.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Agentes de IA / RAG (nova aba)">
+          <div class="projeto-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="11" cy="11" r="7"/>
+              <path d="m21 21-4.3-4.3"/>
+              <path d="M11 8v6M8 11h6"/>
+            </svg>
+          </div>
+          <h3>01. Agentes de IA — RAG</h3>
+          <p>Faça upload de documentos e pergunte em linguagem natural. As respostas são geradas pela IA com base nos trechos recuperados — e mostram as fontes.</p>
+          <div class="projeto-stack">
+            <span>Claude Agent SDK</span>
+            <span>pgvector</span>
+            <span>Embeddings</span>
+            <span>Memória persistente</span>
+          </div>
+          <span class="projeto-open" aria-hidden="true">Abrir app <span class="arrow">↗</span></span>
+        </a>
+
+        <!-- 02. Explorador Estatístico de Textos -->
+        <a class="projeto-card reveal" data-delay="1" href="https://estatistica.mariojapa.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o Explorador Estatístico de Textos (nova aba)">
           <div class="projeto-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
               <path d="M3 3v18h18"/>
@@ -1099,7 +1119,7 @@ section[data-section]{
               <rect x="17" y="4" width="3" height="14" rx="1"/>
             </svg>
           </div>
-          <h3>Explorador Estatístico de Textos</h3>
+          <h3>02. Explorador Estatístico de Textos</h3>
           <p>Envie PDF, Word, TXT ou CSV e obtenha frequência de palavras, TF-IDF, análise de sentimento, nuvem de palavras, bigramas e busca por contexto (KWIC).</p>
           <div class="projeto-stack">
             <span>R</span>
@@ -1110,86 +1130,7 @@ section[data-section]{
           <span class="projeto-open" aria-hidden="true">Abrir app <span class="arrow">↗</span></span>
         </a>
 
-        <!-- RAG — pergunte aos seus documentos -->
-        <a class="projeto-card reveal" data-delay="1" href="https://rag.mariojapa.com" target="_blank" rel="noopener noreferrer" aria-label="Abrir o RAG — pergunte aos seus documentos (nova aba)">
-          <div class="projeto-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <circle cx="11" cy="11" r="7"/>
-              <path d="m21 21-4.3-4.3"/>
-              <path d="M11 8v6M8 11h6"/>
-            </svg>
-          </div>
-          <h3>RAG — pergunte aos documentos</h3>
-          <p>Faça upload de documentos e pergunte em linguagem natural. As respostas são geradas pela IA com base nos trechos recuperados — e mostram as fontes.</p>
-          <div class="projeto-stack">
-            <span>FastAPI</span>
-            <span>pgvector</span>
-            <span>Embeddings</span>
-            <span>Claude API</span>
-          </div>
-          <span class="projeto-open" aria-hidden="true">Abrir app <span class="arrow">↗</span></span>
-        </a>
-
-        <!-- Dashboard EAP -->
-        <a class="projeto-card reveal" data-delay="2" href="https://radarmm.miuraapp.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o Dashboard EAP (nova aba)">
-          <div class="projeto-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <rect x="3" y="3" width="7" height="7" rx="1"/>
-              <rect x="14" y="3" width="7" height="7" rx="1"/>
-              <rect x="3" y="14" width="7" height="7" rx="1"/>
-              <rect x="14" y="14" width="7" height="7" rx="1"/>
-            </svg>
-          </div>
-          <h3>Dashboard EAP</h3>
-          <p>Sistema completo de gestão de projetos com Kanban, Status Report mensal e sincronização em tempo real entre Google Sheets e banco de dados.</p>
-          <div class="projeto-stack">
-            <span>Supabase</span>
-            <span>Google Apps Script</span>
-            <span>JavaScript</span>
-            <span>RLS</span>
-          </div>
-          <span class="projeto-open" aria-hidden="true">Abrir app <span class="arrow">↗</span></span>
-        </a>
-
-        <!-- Assistente conversacional (Telegram & WhatsApp) -->
-        <a class="projeto-card reveal" data-delay="3" href="https://t.me/Bot_Francielle" target="_blank" rel="noopener noreferrer" aria-label="Abrir o assistente conversacional no Telegram (nova aba)">
-          <div class="projeto-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-            </svg>
-          </div>
-          <h3>Assistente conversacional</h3>
-          <p>Atendente virtual no Telegram e WhatsApp, com memória de conversa, acesso a base de conhecimento via RAG e roteamento humano quando precisa.</p>
-          <div class="projeto-stack">
-            <span>Claude API</span>
-            <span>Evolution API</span>
-            <span>Node.js</span>
-            <span>Dokploy</span>
-          </div>
-          <span class="projeto-open" aria-hidden="true">Abrir no Telegram <span class="arrow">↗</span></span>
-        </a>
-
-        <!-- OpenClaw + Chatwoot -->
-        <a class="projeto-card reveal" data-delay="1" href="https://chatwoot.mariojapa.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o Chatwoot (nova aba)">
-          <div class="projeto-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M12 2 2 7l10 5 10-5-10-5z"/>
-              <path d="m2 17 10 5 10-5"/>
-              <path d="m2 12 10 5 10-5"/>
-            </svg>
-          </div>
-          <h3>OpenClaw + Chatwoot</h3>
-          <p>Bridge de atendimento multicanal (Telegram, WhatsApp) com menu de gestão de projetos, relatórios sob demanda e troca de modelo de IA em runtime.</p>
-          <div class="projeto-stack">
-            <span>Chatwoot</span>
-            <span>Telegram</span>
-            <span>Node.js</span>
-            <span>Docker</span>
-          </div>
-          <span class="projeto-open" aria-hidden="true">Abrir app <span class="arrow">↗</span></span>
-        </a>
-
-        <!-- Álbum Copa N×M -->
+        <!-- 03. Álbum Copa N×M -->
         <a class="projeto-card reveal" data-delay="2" href="https://album.miuraapp.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o Álbum Copa N×M (nova aba)">
           <div class="projeto-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -1198,7 +1139,7 @@ section[data-section]{
               <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
             </svg>
           </div>
-          <h3>Álbum Copa N×M</h3>
+          <h3>03. Álbum Copa N×M</h3>
           <p>App web de troca de figurinhas com modelo N×M de reservas, autenticação, RLS por usuário e infraestrutura self-hosted em VPS dedicada.</p>
           <div class="projeto-stack">
             <span>Supabase self-hosted</span>
@@ -1209,8 +1150,29 @@ section[data-section]{
           <span class="projeto-open" aria-hidden="true">Abrir app <span class="arrow">↗</span></span>
         </a>
 
-        <!-- Obsidian — segundo cérebro -->
-        <a class="projeto-card reveal" data-delay="3" href="https://obsidian.md" target="_blank" rel="noopener noreferrer" aria-label="Conhecer o Obsidian (nova aba)">
+        <!-- 04. Dashboard EAP -->
+        <a class="projeto-card reveal" data-delay="3" href="https://radarmm.miuraapp.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o Dashboard EAP (nova aba)">
+          <div class="projeto-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="3" y="3" width="7" height="7" rx="1"/>
+              <rect x="14" y="3" width="7" height="7" rx="1"/>
+              <rect x="3" y="14" width="7" height="7" rx="1"/>
+              <rect x="14" y="14" width="7" height="7" rx="1"/>
+            </svg>
+          </div>
+          <h3>04. Dashboard EAP</h3>
+          <p>Sistema completo de gestão de projetos com Kanban, Status Report mensal e sincronização em tempo real entre Google Sheets e banco de dados.</p>
+          <div class="projeto-stack">
+            <span>Supabase</span>
+            <span>Google Apps Script</span>
+            <span>JavaScript</span>
+            <span>RLS</span>
+          </div>
+          <span class="projeto-open" aria-hidden="true">Abrir app <span class="arrow">↗</span></span>
+        </a>
+
+        <!-- 05. Obsidian — segundo cérebro -->
+        <a class="projeto-card reveal" data-delay="1" href="https://obsidian.md/pt-BR/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o Obsidian (nova aba)">
           <div class="projeto-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
               <path d="M12 2 4 7v10l8 5 8-5V7l-8-5z"/>
@@ -1219,7 +1181,7 @@ section[data-section]{
               <path d="M4 17l8-5 8 5"/>
             </svg>
           </div>
-          <h3>Obsidian — segundo cérebro</h3>
+          <h3>05. Obsidian — segundo cérebro</h3>
           <p>Base de conhecimento pessoal em Markdown com links bidirecionais, grafo de conexões e plugins. Notas locais sincronizadas entre PC e celular via vault self-hosted.</p>
           <div class="projeto-stack">
             <span>Markdown</span>
@@ -1229,9 +1191,64 @@ section[data-section]{
           </div>
           <span class="projeto-open" aria-hidden="true">Conhecer <span class="arrow">↗</span></span>
         </a>
-         
+
+        <!-- 06. Assistente conversacional -->
+        <a class="projeto-card reveal" data-delay="2" href="https://t.me/Bot_Francielle" target="_blank" rel="noopener noreferrer" aria-label="Abrir o assistente conversacional no Telegram (nova aba)">
+          <div class="projeto-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg>
+          </div>
+          <h3>06. Assistente conversacional</h3>
+          <p>Atendente virtual no Telegram e WhatsApp, com memória de conversa, acesso a base de conhecimento via RAG e roteamento humano quando precisa.</p>
+          <div class="projeto-stack">
+            <span>Claude API</span>
+            <span>Evolution API</span>
+            <span>Node.js</span>
+            <span>Dokploy</span>
+          </div>
+          <span class="projeto-open" aria-hidden="true">Abrir no Telegram <span class="arrow">↗</span></span>
+        </a>
+
+        <!-- 07. OpenClaw + Chatwoot -->
+        <a class="projeto-card reveal" data-delay="3" href="https://chatwoot.mariojapa.com/app/accounts/1/dashboard" target="_blank" rel="noopener noreferrer" aria-label="Abrir o OpenClaw + Chatwoot (nova aba)">
+          <div class="projeto-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 2 2 7l10 5 10-5-10-5z"/>
+              <path d="m2 17 10 5 10-5"/>
+              <path d="m2 12 10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>07. OpenClaw + Chatwoot</h3>
+          <p>Bridge de atendimento multicanal (Telegram, WhatsApp) com menu de gestão de projetos, relatórios sob demanda e troca de modelo de IA em runtime.</p>
+          <div class="projeto-stack">
+            <span>Chatwoot</span>
+            <span>Telegram</span>
+            <span>Node.js</span>
+            <span>Docker</span>
+          </div>
+          <span class="projeto-open" aria-hidden="true">Abrir app <span class="arrow">↗</span></span>
+        </a>
+
+        <!-- 08. Casos de Uso Automáticos -->
+        <a class="projeto-card reveal" data-delay="1" href="https://playful-render.lovable.app/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Casos de Uso Automáticos (nova aba)">
+          <div class="projeto-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <h3>08. Casos de Uso Automáticos</h3>
+          <p>Galeria de cenários gerados sob demanda: detecção de temas, extração de entidades, análise de sentimentos e automações end-to-end orquestradas por IA.</p>
+          <div class="projeto-stack">
+            <span>Lovable</span>
+            <span>Claude API</span>
+            <span>n8n</span>
+            <span>Webhooks</span>
+          </div>
+          <span class="projeto-open" aria-hidden="true">Abrir app <span class="arrow">↗</span></span>
+        </a>
+
       </div>
-    </div>
   </section>
   <!-- ============ SOBRE ============ -->
   <section class="sobre" id="sobre" data-section aria-labelledby="sobre-title">
